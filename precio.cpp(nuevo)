@@ -1,0 +1,67 @@
+#include "precio.h"
+#include <cstring>
+
+#include <string>
+
+precio::precio(){}
+
+
+
+precio::precio(float precio_venta,float precio_alquiler)
+{
+
+
+    set_venta(precio_venta);
+    set_alquiler(precio_alquiler);
+
+
+}
+
+void precio::set_venta(float precio_venta)
+{
+
+    if(precio_venta>0)
+    {
+
+        _precio_venta=precio_venta;
+
+    }
+
+    else
+    {
+        _precio_venta=0;
+    }
+
+}
+
+void precio::set_alquiler(float precio_alquiler)
+{
+
+
+    if(precio_alquiler>0)
+    {
+
+        _precio_alquiler=precio_alquiler;
+
+
+    }
+    else
+    {
+        _precio_alquiler=0;
+    }
+
+}
+
+
+
+float precio::get_precio()
+{
+
+    return _precio_venta;
+}
+float precio::get_alquiler()
+{
+
+    return _precio_alquiler;
+
+}
