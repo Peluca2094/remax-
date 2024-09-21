@@ -1,0 +1,130 @@
+#include <iostream>
+#include "gorriti.h"
+#include "precio.h"
+#include "jefe.h"
+#include  "quinta.h"
+#include "departamento.h"
+
+using namespace std;
+
+gorriti cargar_inmuebles();
+precio cargar_precio();
+jefe cargar_jefe();
+void mostrar(gorriti gorri);
+void mostrar_precio(precio preci);
+
+
+int main()
+{
+        int cantidad;
+
+
+
+    gorriti objeto_gorriti[1];
+    precio objeto_precio[1];
+
+
+    //////////me carga la cantidad de casas/////////////
+   for(int i=0;i<1;i++){
+
+    objeto_gorriti[i]=cargar_inmuebles();
+    objeto_precio[i]=cargar_precio();
+
+   }
+
+////////me muestra la cantidad de casas//////////////
+
+    for(int i=0;i<1;i++){
+
+      mostrar(objeto_gorriti[i]);
+      mostrar_precio(objeto_precio[i]);
+
+      }
+
+    return 0;
+}
+
+ gorriti cargar_inmuebles(){
+
+     int codigo;
+    std::string calles;
+    std:: string numero;
+    std::string localidad;
+    int antiguedad;
+    float superficie_total;
+    float superficie_cubierta;
+    int habitaciones;
+  cout<<"codigo"<<endl;
+   cin>>codigo;
+   cout<<"calle:"<<endl;
+   cin>>calles;
+   cout<<"localidad"<<endl;
+   cin>>localidad;
+   cout<<"antiguedad"<<endl;
+   cin>>antiguedad;
+   cout<<"superficie"<<endl;
+   cin>>superficie_total;
+   cout<<"superficie cubierta"<<endl;
+   cin>>superficie_cubierta;
+   cout<<"habitaciones"<<endl;
+   cin>>habitaciones;
+
+
+
+   return gorriti(codigo,calles,numero,localidad,antiguedad,superficie_total,superficie_cubierta,habitaciones);
+
+    }
+
+precio cargar_precio(){
+  float precio_venta;
+    float  precio_alquiler;
+
+  cout<<"precio venta"<<endl;
+   cin>>precio_venta;
+   cout<<"precio alquiler"<<endl;
+   cin>>precio_alquiler;
+
+   return precio(precio_venta,precio_alquiler);
+
+}
+
+jefe cargar_jefe(){
+
+
+  char _apellidi[50];
+    char _nombre [50];
+    char _dni[12];
+    char _celular[15];
+
+ cout<<"apellido"<<endl;
+   cin>>_apellidi;
+   cout<<"nombre"<<endl;
+   cin>>_nombre;
+   cout<<"dni"<<endl;
+   cin>>_dni;
+   cout<<"celular"<<endl;
+   cin>>_celular;
+
+   return jefe(_apellidi,_nombre,_dni,_celular);
+
+
+}
+
+void mostrar(gorriti gorri){
+
+  cout<<"codigo"<<gorri.get_codigo()<<endl;
+  cout<<"calle"<<gorri.get_calle()<<endl;
+  cout<<"numero"<<gorri.get_numero()<<endl;
+  cout<<"localidad"<<gorri.get_localidad()<<endl;
+  cout<<"antiguedad"<<gorri.get_antiguedad()<<endl;
+  cout<<"superficie"<<gorri.get_super_total()<<endl;
+  cout<<"superficie"<<gorri.get_super_cubierta()<<endl;
+  cout<<"habilitaciones"<<gorri.get_habitaciones()<<endl;
+
+
+
+
+}
+void mostrar_precio(precio preci){
+cout<<"venta"<<preci.get_precio()<<endl;
+  cout<<"alquiler"<<preci.get_alquiler()<<endl;}
