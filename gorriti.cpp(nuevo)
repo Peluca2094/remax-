@@ -1,0 +1,97 @@
+#include "gorriti.h"
+
+#include <cstring>
+#include <string>
+gorriti::gorriti(){}
+gorriti::gorriti(int codigo,std::string calles,std::string numeros,std::string localidad,int antiguedad,float super_total,float super_cubierta,int habitaciones)
+{
+    set_codigo(codigo);
+    set_calle(calles);
+    set_numero(numeros);
+    set_localidad(localidad);
+    set_antiguedad(antiguedad);
+    set_super_total(super_total);
+    set_super_cubierta(super_cubierta);
+    set_habitaciones(habitaciones);
+
+
+}
+/////////////set////////////////////////
+void gorriti::set_codigo(int codigo)
+{
+    _codigo = codigo;
+}
+void gorriti:: set_calle(std::string calles)
+{
+    _calles = calles;
+}
+void gorriti:: set_numero(std::string numeros)
+{
+    _numero = numeros;
+}
+void gorriti:: set_localidad(std::string localidad)
+{
+    _localidad = localidad;
+}
+void gorriti::set_antiguedad(int antiguedad)
+{
+    _antiguedad = antiguedad;
+}
+void gorriti::set_super_total(float super_total)
+{
+    _superficie_total = super_total;
+}
+void gorriti::set_super_cubierta(float super_cubierta)
+{
+    _superficie_cubierta = super_cubierta;
+}
+void gorriti::set_habitaciones(int habitaciones)
+{
+    _habitaciones = habitaciones;
+}
+////////////////get//////////////////////////////
+int gorriti::get_codigo()
+{
+
+    return _codigo;
+}
+
+std::string gorriti::get_calle()
+{
+
+    return _calles;
+}
+
+std::string gorriti::get_numero()
+{
+
+    return _numero;
+}
+std::string gorriti::get_localidad()
+{
+
+    return _localidad;
+}
+
+int gorriti::get_antiguedad()
+{
+
+    return _antiguedad;
+}
+float gorriti::get_super_total()
+{
+
+    return _superficie_total;
+}
+float gorriti::get_super_cubierta()
+{
+
+    return _superficie_cubierta;
+
+}
+
+int gorriti::get_habitaciones()
+{
+
+    return _habitaciones;
+}
