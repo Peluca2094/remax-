@@ -1,0 +1,47 @@
+#pragma once
+#include <cstring>
+#include <string>
+
+class gorriti
+{
+
+protected:
+
+   int _codigo;
+    std::string _calles;
+    std::string _numero;
+    std::string _localidad;
+    int _antiguedad;
+    float _superficie_total;
+    float _superficie_cubierta;
+    int _habitaciones;
+
+
+
+
+public:
+    gorriti();
+    gorriti(int,std::string calles,std::string numeros,std:: string localidad,int,float,float,int);
+
+  int get_codigo( );
+ std:: string get_calle();
+ std:: string get_numero();
+ std:: string get_localidad();
+  int get_antiguedad();
+  float get_super_total();
+  float get_super_cubierta();
+  int get_habitaciones();
+
+
+  void set_codigo(int);
+  void set_calle(std::string);
+  void set_numero(std::string);
+  void set_localidad(std::string);
+  void set_antiguedad(int);
+  void set_super_total(float);
+  void set_super_cubierta(float);
+  void set_habitaciones(int);
+
+
+
+};
