@@ -7,40 +7,63 @@ class gorriti
 
 protected:
 
-   int _codigo;
-    std::string _calles;
-    std::string _numero;
-    std::string _localidad;
+    int _codigo;
+    char _calles [50];
+    char _numero[50];
+    char _localidad[50];
+
     int _antiguedad;
     float _superficie_total;
     float _superficie_cubierta;
     int _habitaciones;
 
+    float _precio_venta;
+    float  _precio_alquiler;
 
+    char _apellido[50];
+    char _nombre [50];
+    char _dni[12];
+    char _celular[15];
 
 
 public:
     gorriti();
-    gorriti(int,std::string calles,std::string numeros,std:: string localidad,int,float,float,int);
+    gorriti(int,std::string calles,std::string numeros,std:: string localidad,int,float,float,int,float,float,std::string _apellido,std::string nombre,std::string dni,std::string celu);
 
-  int get_codigo( );
- std:: string get_calle();
- std:: string get_numero();
- std:: string get_localidad();
-  int get_antiguedad();
-  float get_super_total();
-  float get_super_cubierta();
-  int get_habitaciones();
+    int get_codigo( );
+    std:: string get_calle();
+    std:: string get_numero();
+    std:: string get_localidad();
+    int get_antiguedad();
+    float get_super_total();
+    float get_super_cubierta();
+    int get_habitaciones();
+    float get_precio();
+    float get_alquiler();
+
+    std::string get_apellido();
+    std::string get_nombre();
+    std::string get_dni();
+    std::string get_celu();
 
 
-  void set_codigo(int);
-  void set_calle(std::string);
-  void set_numero(std::string);
-  void set_localidad(std::string);
-  void set_antiguedad(int);
-  void set_super_total(float);
-  void set_super_cubierta(float);
-  void set_habitaciones(int);
+    void set_codigo(int);
+    void set_calle(std::string);
+    void set_numero(std::string);
+    void set_localidad(std::string);
+    void set_antiguedad(int);
+    void set_super_total(float);
+    void set_super_cubierta(float);
+    void set_habitaciones(int);
+
+    void set_apellido(std::string);
+    void set_nombre(std::string);
+    void set_dni(std::string);
+    void set_celu(std::string);
+
+
+    void set_venta(float);
+    void set_alquiler(float);
 
 
 
