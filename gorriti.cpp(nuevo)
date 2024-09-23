@@ -2,10 +2,17 @@
 
 #include <cstring>
 #include <string>
-gorriti::gorriti(){}
-gorriti::gorriti(int codigo,std::string calles,std::string numeros,std::string localidad,int antiguedad,float super_total,float super_cubierta,int habitaciones)
+
+using namespace std;
+
+
+gorriti::gorriti() {}
+
+
+gorriti::gorriti(int codigo,string calles,string numeros,string localidad,int antiguedad,float super_total,float super_cubierta,int habitaciones,float precio_venta,float precio_alquiler,string apellido,string nombre,string dni,string celu)
 {
     set_codigo(codigo);
+
     set_calle(calles);
     set_numero(numeros);
     set_localidad(localidad);
@@ -14,6 +21,13 @@ gorriti::gorriti(int codigo,std::string calles,std::string numeros,std::string l
     set_super_cubierta(super_cubierta);
     set_habitaciones(habitaciones);
 
+    set_venta(precio_venta);
+    set_alquiler(precio_alquiler);
+
+    set_apellido(apellido);
+    set_nombre(nombre);
+    set_dni(dni);
+    set_celu(celu);
 
 }
 /////////////set////////////////////////
@@ -21,17 +35,20 @@ void gorriti::set_codigo(int codigo)
 {
     _codigo = codigo;
 }
-void gorriti:: set_calle(std::string calles)
+void gorriti:: set_calle(string calles)
 {
-    _calles = calles;
+    strcpy(_calles,calles.c_str());
+
 }
-void gorriti:: set_numero(std::string numeros)
+void gorriti:: set_numero(string numeros)
 {
-    _numero = numeros;
+    strcpy(_numero,numeros.c_str());
+
 }
-void gorriti:: set_localidad(std::string localidad)
+void gorriti:: set_localidad(string localidad)
 {
-    _localidad = localidad;
+    strcpy(_localidad,localidad.c_str());
+
 }
 void gorriti::set_antiguedad(int antiguedad)
 {
@@ -49,6 +66,63 @@ void gorriti::set_habitaciones(int habitaciones)
 {
     _habitaciones = habitaciones;
 }
+void gorriti::set_venta(float precio_venta)
+{
+
+    if(precio_venta>0)
+    {
+
+        _precio_venta=precio_venta;
+
+    }
+
+    else
+    {
+        _precio_venta=0;
+    }
+
+}
+
+void gorriti::set_alquiler(float precio_alquiler)
+{
+
+
+    if(precio_alquiler>0)
+    {
+
+        _precio_alquiler=precio_alquiler;
+
+
+    }
+    else
+    {
+        _precio_alquiler=0;
+    }
+
+}
+void gorriti::set_apellido(string apellido)
+{
+    strcpy(_apellido,apellido.c_str());
+
+}
+
+void gorriti::set_nombre(string nombre)
+{
+    strcpy(_nombre,nombre.c_str());
+
+}
+void gorriti::set_dni(string dni)
+{
+    strcpy(_dni,dni.c_str());
+
+}
+
+void gorriti::set_celu(string celu)
+{
+    strcpy(_celular,celu.c_str());
+
+}
+
 ////////////////get//////////////////////////////
 int gorriti::get_codigo()
 {
@@ -94,4 +168,37 @@ int gorriti::get_habitaciones()
 {
 
     return _habitaciones;
+}
+
+float gorriti::get_precio()
+{
+
+    return _precio_venta;
+}
+float gorriti::get_alquiler()
+{
+
+    return _precio_alquiler;
+
+}
+
+std::string gorriti::get_apellido()
+{
+
+    return _apellido;
+}
+std::string gorriti::get_nombre()
+{
+
+    return _nombre;
+}
+std::string gorriti::get_dni()
+{
+
+    return _dni;
+}
+std::string gorriti::get_celu()
+{
+
+    return _celular;
 }
