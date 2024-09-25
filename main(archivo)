@@ -1,0 +1,100 @@
+#include <iostream>
+#include "gorriti.h"
+#include  "quinta.h"
+#include "archivo_gorriti.h"
+
+using namespace std;
+
+gorriti cargar_inmuebles();
+
+void mostrar(gorriti gorri);
+
+quinta cargar_quinta();
+
+void mostar_quinta(quinta quinta);
+
+///////////////////////////////////////////////////
+void cargar_endisco(gorriti gorriti,quinta quinta ){
+
+FILE *pfile;
+pfile=fopen("matias.datos","ab");
+fwrite(&gorriti,sizeof(gorriti),1,pfile);
+fwrite(&quinta,sizeof(quinta),1,pfile);
+
+fclose(pfile);
+
+
+}
+
+void mostrar_disco(){
+   gorriti gorriti;
+   quinta quinta;
+FILE *pfile;
+
+pfile=fopen("matias.datos","rb");
+
+ while (fread(&gorriti, sizeof(gorriti), 1, pfile) == 1) {
+        mostrar(gorriti);
+        fclose(pfile);
+
+    }
+
+ while (fread(&quinta, sizeof(quinta), 1, pfile) == 1) {
+        mostar_quinta(quinta);
+        fclose(pfile);
+    }
+
+}
+
+
+
+
+
+int main()
+{
+int cantidad;
+cout << "Introduce la cantidad de objetos: ";
+cin >> cantidad;
+
+quinta quinta;
+
+gorriti gorriti;
+
+
+
+gorriti=cargar_inmuebles();
+quinta=cargar_quinta();
+
+
+
+cargar_endisco(gorriti,quinta);
+mostrar_disco();
+
+
+gorriti g;
+gorriti_archivo g_archivo;
+
+g=cargar_inmuebles();
+
+ if(g_archivo.guardar_archivo(g)){
+
+    cout<<"se guardo"<<endl;
+ }
+  else {
+    cout<<"no se guardo"<<endl;
+  }
+
+
+  g=g_archivo.leer_archivo(0);
+
+  mostrar(g);
+
+  for(int i=0;i<g_archivo.get_cantidad_archivo();i++){
+
+      mostrar(g_archivo.leer_archivo(i));
+
+
+  }
+
+    return 0;
+}
