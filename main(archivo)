@@ -25,7 +25,7 @@ fclose(pfile);
 
 
 }
-
+////////////////////////////////
 void mostrar_disco(){
    gorriti gorriti;
    quinta quinta;
@@ -45,14 +45,70 @@ pfile=fopen("matias.datos","rb");
     }
 
 }
+//////////////////////////////////////
+gorriti leer_archivo(){
+
+gorriti g;
+gorriti_archivo g_archivo;
+
+  g=g_archivo.leer_archivo(0);
+
+  mostrar(g);
+
+  for(int i=0;i<g_archivo.get_cantidad_archivo();i++){
+
+      mostrar(g_archivo.leer_archivo(i));}
+
+
+}
+//////////////////////////////////////////////
+bool cantidad_archivo(){
+gorriti_archivo g_archivo;
 
 
 
+    int cantidad= g_archivo.get_cantidad_archivo();
 
 
+  gorriti *vector_gorriti =new gorriti[cantidad];
+
+    g_archivo.leer_todos(vector_gorriti,cantidad);
+
+  for(int i=0;i<cantidad;i++){
+
+      mostrar(vector_gorriti[i]);
+
+    return true;
+}
+  delete [] vector_gorriti;
+
+}
+/////////////////////////////////////////
+void modificar(){
+gorriti g;
+gorriti_archivo g_archivo;
+int codigo;
+cout<<"codigo a modificar"<<endl;
+cin>>codigo;
+int posicion=g_archivo.buscar(codigo);
+if(posicion!=-1){
+
+g=g_archivo.leer_archivo(posicion);
+cout<<"datos"<<endl;
+mostrar(g);
+cout<<"modificar"<<endl;
+
+g=cargar_inmuebles();
+
+g_archivo.modificar(posicion,g);
+}
+else{cout<<"no se encuentra"<<endl;}
+}
+
+
+/////////////////////////////////////////
 int main()
 {
-int cantidad;
 cout << "Introduce la cantidad de objetos: ";
 cin >> cantidad;
 
@@ -62,39 +118,20 @@ gorriti gorriti;
 
 
 
-gorriti=cargar_inmuebles();
-quinta=cargar_quinta();
+//gorriti=cargar_inmuebles();
+//quinta=cargar_quinta();
 
 
 
-cargar_endisco(gorriti,quinta);
-mostrar_disco();
+///cargar_endisco(gorriti,quinta);
+///mostrar_disco();
 
 
-gorriti g;
-gorriti_archivo g_archivo;
+///cantidad_archivo();
+///modificar();
+cout<<"______________________"<<endl;
 
-g=cargar_inmuebles();
-
- if(g_archivo.guardar_archivo(g)){
-
-    cout<<"se guardo"<<endl;
- }
-  else {
-    cout<<"no se guardo"<<endl;
-  }
-
-
-  g=g_archivo.leer_archivo(0);
-
-  mostrar(g);
-
-  for(int i=0;i<g_archivo.get_cantidad_archivo();i++){
-
-      mostrar(g_archivo.leer_archivo(i));
-
-
-  }
+///mostrar(gorriti);
 
     return 0;
 }
