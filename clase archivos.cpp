@@ -78,3 +78,83 @@ total=ftell(pfile);
    return total/sizeof(gorriti);
 
 }
+
+bool gorriti_archivo::leer_todos(gorriti vector_archivo[],int cantidad){
+
+
+      FILE *pfile;
+
+      bool resultado;
+
+    pfile=fopen(_nombre_archivo.c_str(),"rb");
+
+ if(pfile==nullptr){
+        return false;
+
+       }
+
+    if(fread(vector_archivo,sizeof(gorriti),cantidad,pfile)==cantidad){
+
+        return resultado;
+
+    }
+
+  fclose(pfile);
+
+
+
+
+ }
+
+
+bool gorriti_archivo::modificar(int posicion,gorriti &registro){
+
+FILE *pfile;
+bool resultado;
+
+     pfile=fopen(_nombre_archivo.c_str(),"rb+");
+
+       if(pfile==nullptr){
+        return false;
+
+       }
+    fseek(pfile,sizeof(gorriti) * posicion,SEEK_SET);
+
+    if(fwrite(&registro,sizeof(gorriti),1,pfile)==1){
+
+        resultado=fwrite(&registro,sizeof(gorriti),1,pfile);
+
+
+    }
+        return resultado;
+}
+
+
+
+int gorriti_archivo::buscar(int codigo){
+
+  FILE *pfile;
+  bool resultado;
+     gorriti registro;
+     int posicion=-1;
+
+    pfile=fopen(_nombre_archivo.c_str(),"rb");
+
+      if(pfile==nullptr){
+        return false;
+
+       }
+
+
+    while(fread(&registro,sizeof(gorriti),1,pfile)==1){
+     if(registro.get_codigo()==codigo){
+     fclose(pfile);
+     return posicion;
+     }
+
+
+
+}
+
+}
+
