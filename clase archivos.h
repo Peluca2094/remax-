@@ -23,6 +23,11 @@ public:
      int get_cantidad_archivo();
 
 
+   bool leer_todos(gorriti vector_archivos[],int cantidad);
+
+   bool modificar(int posicion,gorriti &registro);
+
+   int  buscar(int codigo);
 
 
 
